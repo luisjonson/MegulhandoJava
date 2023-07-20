@@ -32,7 +32,7 @@ public class Conta {
             throw new IllegalStateException("Valor deve ser maior que 0");
         }
 
-        if(saldo - valor < 0){
+        if(getSaldoDisponivel() - valor < 0){
             throw new IllegalStateException("Saldo insuficiente");
         }
         saldo -= valor;
@@ -40,6 +40,9 @@ public class Conta {
 
    public  void sacar(double valor, double taxaSaque){
         sacar(valor + taxaSaque);
+    }
+    public double getSaldoDisponivel(){
+        return getSaldo();
     }
 
     public Pessoa getTitular() {
