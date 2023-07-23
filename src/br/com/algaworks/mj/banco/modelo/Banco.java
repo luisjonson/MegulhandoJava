@@ -3,6 +3,7 @@ package br.com.algaworks.mj.banco.modelo;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Banco {
 
@@ -18,9 +19,10 @@ public class Banco {
         Conta conta5 = new ContaEspecial(pessoa2,123,188, new BigDecimal("1000"));
 
         conta1.depositar(new BigDecimal("120"));
-        conta1.depositar(new BigDecimal("150"));
-        conta1.depositar(new BigDecimal("500"));
-        conta1.depositar(new BigDecimal("12000"));
+        conta2.depositar(new BigDecimal("150"));
+        conta3.depositar(new BigDecimal("500"));
+        conta4.depositar(new BigDecimal("12000"));
+        conta5.depositar(new BigDecimal("12000"));
 
         contas.add(conta1);
         contas.add(conta2);
@@ -31,4 +33,23 @@ public class Banco {
     public List<Conta> getContas(){
         return contas;
     }
+
+    public Optional<Conta> buscar(int agencia, int numeroConta){
+        for (Conta conta : getContas()) {
+            if(conta.getAgencia() == agencia && conta.getNumero() == numeroConta){
+                return Optional.of(conta);
+            }
+        }
+        return Optional.empty();
+    }
+
+    /*public Conta buscar(int agencia, int numeroConta){
+        for (Conta conta : getContas()) {
+            if(conta.getAgencia() == agencia && conta.getNumero() == numeroConta){
+                return conta;
+            }
+        }
+
+        return null;
+    }*/
 }
