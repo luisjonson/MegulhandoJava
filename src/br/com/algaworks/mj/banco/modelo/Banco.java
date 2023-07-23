@@ -10,7 +10,6 @@ public class Banco {
     public Banco(){
         Pessoa pessoa1 = new Pessoa("João da Silva", "10000000000");
         Pessoa pessoa2 = new Pessoa("Maria das Couves", "20000000000");
-        Pessoa pessoa3 = new Pessoa("Maria das Couves", "20000000000");
 
         Conta conta1 = new ContaInvestimento(pessoa1,222, 999);
         Conta conta2 = new ContaInvestimento(pessoa1, 123,888);
